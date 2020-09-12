@@ -1,4 +1,4 @@
-#  High-Performance-Java-Persistence: Projects and Architecture Design. Database Stuructes and Connectivity
+##  High-Performance-Java-Persistence: Projects and Architecture Design. Database Stuructes and Connectivity
 
 <img width="185" alt="High-Performance" src="https://user-images.githubusercontent.com/11626327/92996579-a8b2e180-f547-11ea-8cc0-0b81707ee731.png">
 
