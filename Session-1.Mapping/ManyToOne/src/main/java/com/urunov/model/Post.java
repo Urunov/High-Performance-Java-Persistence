@@ -10,14 +10,14 @@ import java.util.List;
 
 /**
  * @Author: apple
- * @created on 13/09/2020
- * @Project is EssentialDB
+ * @created on 17/09/2020
+ * @Project is MappingSimple
  */
-
 @Data
-@Setter
 @Getter
+@Setter
 @Entity
+
 public class Post {
 
     @Id
@@ -27,6 +27,8 @@ public class Post {
     private String title;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "post")
+//    @OrderColumn(name = "entry")   /** adding column in the PostComment table. ***/
     private List<PostComment> comments = new ArrayList<>();
+//
 
 }
