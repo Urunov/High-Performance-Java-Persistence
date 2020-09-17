@@ -6,8 +6,8 @@ import javax.persistence.*;
 
 /**
  * @Author: apple
- * @created on 13/09/2020
- * @Project is EssentialDB
+ * @created on 17/09/2020
+ * @Project is MappedByMapping
  */
 
 @Data
@@ -20,16 +20,12 @@ import javax.persistence.*;
 public class PostComment {
 
     @Id
-    private Long id;
+    @GeneratedValue
+    private int id;
 
     private String review;
 
-    /***
-     * -----------------------------
-     * | Child Class is PostComment |
-     * ------------------------------
-     *
-     * */
-
-
+    @ManyToOne
+    @JoinColumn(name = "post_id")
+    private Post post;
 }

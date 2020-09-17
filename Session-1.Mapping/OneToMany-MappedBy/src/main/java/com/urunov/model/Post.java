@@ -8,10 +8,9 @@ import java.util.List;
 
 /**
  * @Author: apple
- * @created on 13/09/2020
- * @Project is EssentialDB
+ * @created on 17/09/2020
+ * @Project is MappedByMapping
  */
-
 @Data
 @Setter
 @Getter
@@ -41,10 +40,8 @@ public class Post {
      *
      * */
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "post")
     @OrderColumn(name = "entry")
     private List<PostComment> comments = new ArrayList<>();
-
-
 
 }
