@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.urunov</groupId>
-    <artifactId>many</artifactId>
+    <artifactId>mapping</artifactId>
     <version>0.0.1</version>
-    <name>many</name>
+    <name>Mapping</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -57,6 +57,7 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
+
     </dependencies>
 
     <build>
