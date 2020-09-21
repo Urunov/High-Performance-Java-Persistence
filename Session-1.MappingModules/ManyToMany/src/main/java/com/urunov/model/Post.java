@@ -31,4 +31,17 @@ public class Post {
     @JoinTable(name = "post_tag", joinColumns = @JoinColumn(name = "post_id"),
                     inverseJoinColumns = @JoinColumn(name = "tag_id"))
     private List<Tag> tags = new ArrayList<>();
+
+
+    public Post(String s) {
+        this.title = s;
+    }
+
+
+    public void addTag(Tag tag){
+        tags.add(tag);
+
+    }
 }
+
+
