@@ -43,19 +43,10 @@ public class Product implements Serializable {
     private String description;
     private Date creation_date;
 
-    /*-----------------------------------*/
+    /*** Mapping with Hibernate**/
 
-    /*** Mapping Technic and Hibernate**/
-
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "procat_id")
+    @ManyToOne
     private Category category;
-
-//    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-//    @JoinTable(name = "proorder_id")
-//    private List<Order> orders = new ArrayList<Order>();
-//    /*-----------------------------------*/
-//
 
 
 }
