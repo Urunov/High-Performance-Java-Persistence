@@ -14,7 +14,8 @@ Just like the unidirectional `@OneToMany` relationship can be optimized by allow
 
 
 
-
+## Resource
+1. [High-Performance-Java-Persistence](https://github.com/Urunov/High-Performance-Java-Persistence/tree/master/Resources)
 
 
 --------
