@@ -17,18 +17,22 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @Entity
+@Table(name = "category")
 public class Category implements Serializable {
 
     @Id
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID", nullable = false, unique = true)
+    private Long categoryId;
+
     private String name;
     private String value;
     private String type;
     private String icon;
     private String slug;
 
-    @OneToMany( fetch = FetchType.LAZY, mappedBy = "category")
-    @JoinColumn(name = "product_id")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "category_id")
     private List<Product> products;
 
     public String getName() {
@@ -69,13 +73,5 @@ public class Category implements Serializable {
 
     public void setSlug(String slug) {
         this.slug = slug;
-    }
-
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
     }
 }

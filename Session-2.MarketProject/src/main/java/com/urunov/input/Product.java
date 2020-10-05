@@ -21,13 +21,14 @@ import java.util.Set;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-
 @Entity
+@Table(name = "product")
 public class Product implements Serializable {
 
 
     /*** Declare Variables*/
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String productName;
@@ -45,8 +46,12 @@ public class Product implements Serializable {
 
     /*** Mapping with Hibernate**/
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Category category;
+
+//    @ManyToMany(mappedBy = "products")
+//    @JoinTable(name = "product_id")
+//    private Set<Order> orders;
 
 
 }
