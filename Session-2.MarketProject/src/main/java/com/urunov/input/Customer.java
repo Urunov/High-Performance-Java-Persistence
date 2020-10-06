@@ -25,7 +25,8 @@ public class Customer implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long customer_Id;
+    @Column(name = "ID", unique = true, nullable = false)
+    private Long custom_id;
 
     private String name;
     private String image;
@@ -34,6 +35,6 @@ public class Customer implements Serializable {
     private int totalOrderAmount;
     private String address;
 
-    @ManyToMany(mappedBy = "customers", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Collection<Order> orders = new ArrayList<>();
+    @ManyToMany(mappedBy = "customers")
+    private Collection<Orders> orders = new ArrayList<>();
 }

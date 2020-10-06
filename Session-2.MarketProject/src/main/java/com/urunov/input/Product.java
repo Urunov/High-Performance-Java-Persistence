@@ -4,10 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.Set;
 
 /**
  * @Author: apple
@@ -29,7 +26,8 @@ public class Product implements Serializable {
     /*** Declare Variables*/
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "ID", nullable = false, unique = true)
+    private Long product_id;
 
     private String productName;
     private String image;
@@ -50,8 +48,7 @@ public class Product implements Serializable {
     private Category category;
 
 //    @ManyToMany(mappedBy = "products")
-//    @JoinTable(name = "product_id")
-//    private Set<Order> orders;
-
-
+//    private List<Orders> orders;
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    private Orders orders;
 }
