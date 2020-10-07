@@ -1,11 +1,13 @@
 package com.urunov.input;
 
+import com.urunov.input.info.Address;
 import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * @Author: apple
@@ -37,7 +39,8 @@ public class Customer implements Serializable {
     private Collection<Orders> orders = new ArrayList<>();
 
     //Address
-    private String address;
+    @OneToMany(mappedBy = "customer")
+    private List<Address> addresses;
 
     //Contact
     private String contact;

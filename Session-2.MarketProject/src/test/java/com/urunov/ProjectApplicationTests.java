@@ -62,7 +62,7 @@ class ProjectApplicationTests {
 
         Customer customer = new Customer();
         customer.setName("Hamdamboy");
-        customer.setAddress("Seoul, Korea. Jongro-gu, ");
+      //  customer.setAddress("Seoul, Korea. Jongro-gu, ");
         customer.setEmail("myindexuz@gmail.com");
         customer.setImage("amazon.com/lir/");
         customer.setTotalOrder(4);
