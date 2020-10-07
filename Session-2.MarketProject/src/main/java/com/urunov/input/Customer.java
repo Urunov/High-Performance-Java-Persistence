@@ -6,8 +6,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
-import java.util.Set;
 
 /**
  * @Author: apple
@@ -33,8 +31,17 @@ public class Customer implements Serializable {
     private String email;
     private int totalOrder;
     private int totalOrderAmount;
-    private String address;
+
 
     @ManyToMany(mappedBy = "customers")
     private Collection<Orders> orders = new ArrayList<>();
+
+    //Address
+    private String address;
+
+    //Contact
+    private String contact;
+
+    // Card
+    private String card;
 }

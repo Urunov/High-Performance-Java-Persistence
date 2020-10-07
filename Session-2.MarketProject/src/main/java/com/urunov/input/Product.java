@@ -4,7 +4,10 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author: apple
@@ -47,8 +50,14 @@ public class Product implements Serializable {
     @ManyToOne(cascade = CascadeType.ALL)
     private Category category;
 
-//    @ManyToMany(mappedBy = "products")
-//    private List<Orders> orders;
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    private Orders orders;
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "product_order",
+            joinColumns = {@JoinColumn(name = "product_id")}, // product
+            inverseJoinColumns = {@JoinColumn(name = "order_id")} // order
+    )
+    private List<Orders> orders = new ArrayList<>();
+
+    @OneToOne
+    private Coupon coupon;
+
 }

@@ -5,8 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -48,13 +46,7 @@ public class Orders implements Serializable {
     private List<Customer> customers;
 
 
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(name = "product_order",
-//            joinColumns = {@JoinColumn(name = "ID")}, // order
-//            inverseJoinColumns = {@JoinColumn(name = "ID")} // product
-//    )
-//    private Collection<Product> products = new ArrayList<>();
 
-
-
+    @ManyToMany(mappedBy = "orders")
+    private List<Product> products;
 }
