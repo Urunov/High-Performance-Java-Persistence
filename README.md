@@ -8,6 +8,8 @@ Mapping, Data structure,  database, oracle, mysql, sql, nosql, onetoone, onetoma
 
 Just like the unidirectional `@OneToMany` relationship can be optimized by allowing the child-side to control this association, the `@ManyToMany` mapping can be transformed so that the junction table is mapped to an entity.
 
+![Screen Shot 2020-10-08 at 11 55 25 AM](https://user-images.githubusercontent.com/11626327/95431601-620aa880-0988-11eb-9fc9-8410fdca472d.png)
+
 
 <img width="980" alt="Screen Shot 2020-09-19 at 10 24 02 PM" src="https://user-images.githubusercontent.com/11626327/93668393-f048e880-fac6-11ea-9f30-2661fddcb316.png">
 
