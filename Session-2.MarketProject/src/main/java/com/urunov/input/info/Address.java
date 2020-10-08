@@ -1,6 +1,8 @@
 package com.urunov.input.info;
 
 import com.urunov.input.Customer;
+import com.urunov.input.Stuff;
+import com.urunov.input.User;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 
@@ -30,4 +32,10 @@ public class Address implements Serializable {
 
     @ManyToOne(cascade = CascadeType.ALL)
     private Customer customer;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private User user;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Stuff stuff;
 }

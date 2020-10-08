@@ -1,6 +1,8 @@
 package com.urunov.input;
 
 import com.urunov.input.info.Address;
+import com.urunov.input.info.Card;
+import com.urunov.input.info.Contact;
 import lombok.*;
 
 import javax.persistence.*;
@@ -43,8 +45,10 @@ public class Customer implements Serializable {
     private List<Address> addresses;
 
     //Contact
-    private String contact;
+    @OneToMany(mappedBy = "customer")
+    private List<Contact> contact;
 
     // Card
-    private String card;
+    @OneToMany(mappedBy = "customer")
+    private List<Card> card;
 }

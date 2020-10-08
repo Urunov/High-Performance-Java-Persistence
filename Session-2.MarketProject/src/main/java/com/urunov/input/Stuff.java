@@ -1,13 +1,14 @@
 package com.urunov.input;
 
 
+import com.urunov.input.info.Address;
+import com.urunov.input.info.Contact;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Getter
@@ -29,5 +30,9 @@ public class Stuff {
     private String role;
     private Date creation_date;
 
-
+    @OneToMany(mappedBy = "stuff")
+    private List<Address> address = new ArrayList<>();
+//
+    @OneToMany(mappedBy = "stuff")
+    private List<Contact> contacts = new ArrayList<>();
 }

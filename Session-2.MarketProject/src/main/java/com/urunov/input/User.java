@@ -1,13 +1,13 @@
 package com.urunov.input;
 
+import com.urunov.input.info.Address;
+import com.urunov.input.info.Contact;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -27,5 +27,10 @@ public class User implements Serializable {
     private String email;
     private Date creation_date;
 
+    @OneToMany(mappedBy = "user")
+    private List<Address> address;
+
+    @OneToMany(mappedBy = "user")
+    private List<Contact> contacts;
 
 }

@@ -1,5 +1,6 @@
 package com.urunov.input;
 
+import com.urunov.input.exist.CouponStatus;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 
@@ -30,14 +31,15 @@ public class Coupon implements Serializable {
 
     private int minimum_amount;
 
-    private String status;
-
     private String description;
 
     private Date creation_date;
 
+    @Enumerated(value = EnumType.ORDINAL)
+    private CouponStatus status;
+
     /*** Product */
-    @OneToOne
+    @OneToOne(mappedBy = "coupon", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
     private Product product;
 
     /*** Category */

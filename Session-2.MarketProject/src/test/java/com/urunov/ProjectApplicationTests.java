@@ -38,7 +38,7 @@ class ProjectApplicationTests {
     public void testRelationships() {
 
         Product product = new Product();
-        product.setProductName("Gloves");
+        product.setName("Gloves");
         product.setDescription("Uzbekistan Cotton, Made in Uzbekistan ");
         product.setDisc_in_pros(3);
         product.setPrice(63);

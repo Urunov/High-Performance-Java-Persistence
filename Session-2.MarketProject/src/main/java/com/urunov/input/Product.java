@@ -32,7 +32,9 @@ public class Product implements Serializable {
     @Column(name = "ID", nullable = false, unique = true)
     private Long product_id;
 
-    private String productName;
+    @Column(name = "product_name")
+    private String name;
+
     private String image;
     private String slug;
     private String type;
@@ -43,6 +45,8 @@ public class Product implements Serializable {
     private int per_unit;  // default =1
     private int quantity; //
     private String description;
+
+
     private Date creation_date;
 
     /*** Mapping with Hibernate**/
@@ -57,7 +61,7 @@ public class Product implements Serializable {
     )
     private List<Orders> orders = new ArrayList<>();
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     private Coupon coupon;
 
 }

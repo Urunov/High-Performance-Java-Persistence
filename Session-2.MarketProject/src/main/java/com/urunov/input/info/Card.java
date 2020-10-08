@@ -1,5 +1,6 @@
 package com.urunov.input.info;
 
+import com.urunov.input.Customer;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,17 +20,13 @@ public class Card implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
     private String name;
-
-    @Column(name = "type")
     private String type;
-
-    @Column(name = "title")
     private String title;
 
-    @JoinColumn(name = "last_four_digit")
     private int lastFourDigit;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Customer customer;
 
 }
