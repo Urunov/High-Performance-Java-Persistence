@@ -1,0 +1,75 @@
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+#--------------------------------
+
+type Query {
+    product(id: ID!): Product
+    allProduct: [Product]
+}
+#------------------------------
+
+type Mutation {
+
+#------------Product---------------------
+
+    addProduct(input: AdjustProduct!) : Product!
+    deleteProduct(id: ID!): Boolean
+    updateProduct(input: AdjustProduct!) : Product!
+
+}
+
+
+#------------------------------------------
+type Product {
+
+    id: ID!
+    name: String!
+    slug: String!
+    image:String!
+    type: String!
+    unit: String!
+    price: Int!
+    salePrice: Float!
+    disc_in_pros: Int!
+    per_unit: Int!
+    quantity: Int!
+    description:String!
+}
+#------------------------------
+
+input AdjustProduct {
+
+    name: String!
+    slug: String!
+    image:String!
+    type: String!
+    unit: String!
+    price: Int!
+    salePrice: Float!
+    disc_in_pros: Int!
+    per_unit: Int!
+    quantity: Int!
+    description:String!
+
+ }
+#--------------------------
+input UpdateProduct{
+
+    id: ID!
+    name: String!
+    slug: String!
+    image: String!
+    type: String!
+    unit: String!
+    description: String!
+    price: Int!
+    salePrice: Float!
+    disc_in_pros: Int!
+    per_unit: Int!
+    quantity: Int!
+}
+#------------------------------

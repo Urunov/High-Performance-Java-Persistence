@@ -7,7 +7,6 @@ import com.urunov.exceptions.ProductNotFoundException;
 import com.urunov.graphqls.AdjustValues.AdjustProduct;
 import com.urunov.input.Product;
 
-import javax.swing.text.html.Option;
 import java.util.Optional;
 
 public class ProductMutation implements GraphQLMutationResolver {
