@@ -1,46 +1,67 @@
 package com.urunov.graphqls;
 
+import aQute.bnd.annotation.component.Component;
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
+import com.urunov.dataresource.CategoryResource;
 import com.urunov.dataresource.ProductResource;
 import com.urunov.exceptions.InvalidArgumentException;
 import com.urunov.exceptions.ProductNotFoundException;
 import com.urunov.graphqls.AdjustValues.AdjustProduct;
+import com.urunov.input.Category;
 import com.urunov.input.Product;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Date;
 import java.util.Optional;
 
-public class ProductMutation implements GraphQLMutationResolver {
+@Component
+public class TotalMutationResolver implements GraphQLMutationResolver {
 
+    @Autowired
+    private CategoryResource categoryResource;
+
+    @Autowired
     private ProductResource productResource;
 
-    public ProductMutation(ProductResource productResource) {
+    /***          Category       */
+    public Category addCategory(String name){
+        //
+        Category category = new Category();
+        category.setName(name);
+
+        return categoryResource.saveAndFlush(category);
+    }
+
+    /***----------------------------------*/
+    public TotalMutationResolver(ProductResource productResource) {
+
+
         this.productResource = productResource;
     }
 
-    public Product addProduct() {
+    public Product addProduct(Long category_id, String name, String slug, String image, String type, String unit, Integer price, Double salePrice, Double disc_in_pros, String per_unit, Integer quantity, Date creation_date) {
+
+        Category category = categoryResource.findById(category_id).orElseThrow(null);
 
         Product product = new Product();
 
-        product.setName(product.getName());
-        product.setSlug(product.getSlug());
-        product.setImage(product.getImage());
-        product.setType(product.getType());
-        product.setUnit(product.getUnit());
-        product.setPrice(product.getPrice());
-        product.setSalePrice(product.getSalePrice());
+        product.setProduct_id(category_id);
+        product.setName(name);
+        product.setSlug(slug);
+        product.setImage(image);
+        product.setType(type);
+        product.setUnit(unit);
+        product.setPrice(price);
+        product.setSalePrice(salePrice);
         product.setDisc_in_pros(product.getDisc_in_pros());
         product.setPer_unit(product.getPer_unit());
         product.setQuantity(product.getQuantity());
         product.setDescription(product.getDescription());
         product.setCreation_date(product.getCreation_date());
 
-        return productResource.save(product);
+        return productResource.saveAndFlush(product);
     }
 
-    public boolean deleteProduct(Long id) {
-        productResource.deleteById(id);
-        return true;
-    }
 
     public Product updateProduct(AdjustProduct adjustProduct){
 
@@ -80,4 +101,17 @@ public class ProductMutation implements GraphQLMutationResolver {
         return productResource.save(product);
 
     }
+
+
+
+    public Boolean deleteCategory(Long id){
+        categoryResource.deleteById(id);
+        return true;
+    }
+
+    public boolean deleteProduct(Long id) {
+        productResource.deleteById(id);
+        return true;
+    }
+
 }

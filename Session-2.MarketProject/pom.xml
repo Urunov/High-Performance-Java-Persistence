@@ -77,27 +77,35 @@
         <dependency>
             <groupId>com.graphql-java</groupId>
             <artifactId>graphql-java-tools</artifactId>
-            <version>4.3.0</version>
+            <version>5.2.4</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.graphql-java/graphql-java-servlet -->
-        <dependency>
-            <groupId>com.graphql-java</groupId>
-            <artifactId>graphql-java-servlet</artifactId>
-            <version>4.7.0</version>
-        </dependency>
+
 
         <!-- https://mvnrepository.com/artifact/com.graphql-java/graphql-spring-boot-starter -->
         <dependency>
             <groupId>com.graphql-java</groupId>
             <artifactId>graphql-spring-boot-starter</artifactId>
-            <version>3.10.0</version>
+            <version>5.0.2</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.graphql-java/graphiql-spring-boot-starter -->
         <dependency>
             <groupId>com.graphql-java</groupId>
             <artifactId>graphiql-spring-boot-starter</artifactId>
-            <version>3.0.3</version>
+            <version>5.0.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jdbc</artifactId>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/com.graphql-java/graphql-java-servlet -->
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-java-servlet</artifactId>
+            <version>0.6.3</version>
         </dependency>
 
     </dependencies>

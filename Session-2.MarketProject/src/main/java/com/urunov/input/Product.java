@@ -40,10 +40,10 @@ public class Product implements Serializable {
     private String type;
     private String unit;
     private int price;
-    private float salePrice; // nullable=true
-    private int disc_in_pros; // default =0
-    private int per_unit;  // default =1
-    private int quantity; //
+    private double salePrice; // nullable=true
+    private Integer disc_in_pros; // default =0
+    private Integer per_unit;  // default =1
+    private Integer quantity; //
     private String description;
 
 

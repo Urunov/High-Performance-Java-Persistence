@@ -7,21 +7,34 @@ schema {
 #--------------------------------
 
 type Query {
+    allCategories: [Category]
+    allProducts: [Product]
+    category(id: ID!): Category
     product(id: ID!): Product
-    allProduct: [Product]
+
 }
 #------------------------------
 
 type Mutation {
 
+#------------Category---------------------
+
+    addCategory(name: String!): Category!
+  #  updateCategory(id: ID!, name: String!): Category!
+    deleteCategory(id: ID!): Boolean
+
 #------------Product---------------------
 
-    addProduct(input: AdjustProduct!) : Product!
-    deleteProduct(id: ID!): Boolean
-    updateProduct(input: AdjustProduct!) : Product!
+    addProduct(name: String!, slug: String!, image: String, type: String, unit: String, disc_in_pros: Int, price: Int, per_unit: Int, quantity: Int) : Product!
+  #  updateProduct(input: AdjustProduct!) : Product!
 
 }
 
+#------------------------------------------
+type Category{
+    id: ID
+    name: String!
+}
 
 #------------------------------------------
 type Product {
@@ -33,7 +46,7 @@ type Product {
     type: String!
     unit: String!
     price: Int!
-    salePrice: Float!
+    #salePrice: float!
     disc_in_pros: Int!
     per_unit: Int!
     quantity: Int!
@@ -41,35 +54,7 @@ type Product {
 }
 #------------------------------
 
-input AdjustProduct {
 
-    name: String!
-    slug: String!
-    image:String!
-    type: String!
-    unit: String!
-    price: Int!
-    salePrice: Float!
-    disc_in_pros: Int!
-    per_unit: Int!
-    quantity: Int!
-    description:String!
-
- }
 #--------------------------
-input UpdateProduct{
 
-    id: ID!
-    name: String!
-    slug: String!
-    image: String!
-    type: String!
-    unit: String!
-    description: String!
-    price: Int!
-    salePrice: Float!
-    disc_in_pros: Int!
-    per_unit: Int!
-    quantity: Int!
-}
 #------------------------------
