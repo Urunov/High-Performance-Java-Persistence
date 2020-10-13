@@ -1,0 +1,29 @@
+#type Query{
+#    allCategories: [Category]
+#    allProducts:[Product]
+#    category(id: ID!): Category
+#    product(id: ID!):Product
+#}
+#
+#type Mutation {
+#    addCategory(name: String!): Category!
+#    updateCategory(id: ID!, name: String!): Category!
+#    deleteCategory(id: ID!): Boolean
+#
+#    addProduct(name: String!, code: String!, price: Float!, category_id: ID!): Product!
+#    updateProduct(id: ID!, name: String!, code: String!, price: Float!, category_id: ID!): Product!
+#    deleteProduct(id: ID!): Boolean
+#}
+#
+#type Category {
+#    id: ID
+#    name: String!
+#}
+#
+#type Product {
+#    id: ID
+#    name: String!
+#    code: String!
+#    price: Float!
+#    category: Category!
+#}
