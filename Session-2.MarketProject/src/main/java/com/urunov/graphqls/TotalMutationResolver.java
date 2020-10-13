@@ -1,6 +1,5 @@
 package com.urunov.graphqls;
 
-import aQute.bnd.annotation.component.Component;
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.urunov.dataresource.CategoryResource;
 import com.urunov.dataresource.ProductResource;
@@ -10,11 +9,11 @@ import com.urunov.graphqls.AdjustValues.AdjustProduct;
 import com.urunov.input.Category;
 import com.urunov.input.Product;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Component;
 import java.util.Date;
 import java.util.Optional;
 
-@Component
+
 public class TotalMutationResolver implements GraphQLMutationResolver {
 
     @Autowired

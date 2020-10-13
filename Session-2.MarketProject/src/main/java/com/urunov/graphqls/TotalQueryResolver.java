@@ -1,7 +1,6 @@
 package com.urunov.graphqls;
 
 
-import aQute.bnd.annotation.component.Component;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.urunov.dataresource.CategoryResource;
 import com.urunov.dataresource.ProductResource;
@@ -10,9 +9,8 @@ import com.urunov.input.Product;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
-import java.util.Optional;
 
-@Component
+//@Component
 @RequiredArgsConstructor
 public class TotalQueryResolver implements GraphQLQueryResolver {
 

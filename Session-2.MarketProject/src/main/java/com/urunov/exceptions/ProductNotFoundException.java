@@ -18,9 +18,6 @@ public class ProductNotFoundException extends RuntimeException implements GraphQ
         extensions.put("invalidProductId", invalidProductId);
     }
 
-
-
-
     @Override
     public ErrorType getErrorType() {
         return ErrorType.DataFetchingException;
