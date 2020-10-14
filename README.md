@@ -24,7 +24,8 @@ Most Online market project has been complated database  stucture and Spring Boot
 ## Session-4. Market Project (Database Mapping and GraphQL API stucture design)
 
 
-
+Updated Database Schema and Using GraphQL API implementation. Product and Coupong (`@ManyToOne`) integration.
+  ![Screen Shot 2020-10-14 at 5 59 58 PM](https://user-images.githubusercontent.com/11626327/95967360-215ad580-0e47-11eb-8d0d-40088026f628.png)
 
 ## Resource
 1. [High-Performance-Java-Persistence](https://github.com/Urunov/High-Performance-Java-Persistence/tree/master/Resources)
