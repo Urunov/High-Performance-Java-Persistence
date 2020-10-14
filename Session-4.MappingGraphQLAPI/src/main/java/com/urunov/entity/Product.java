@@ -32,17 +32,17 @@ public class Product implements Serializable {
 
     @Column(name = "product_name")
     private String name;
-
     private String image;
     private String slug;
     private String type;
     private String unit;
-    private int price;
+    private double price;
     private double salePrice; // nullable=true
     private Integer disc_in_pros; // default =0
     private Integer per_unit;  // default =1
     private Integer quantity; //
     private String description;
+    private String code;
 
 
     private Date creation_date;
