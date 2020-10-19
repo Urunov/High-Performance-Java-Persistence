@@ -1,20 +1,21 @@
 package com.urunov.rest.service;
 
+import com.urunov.rest.exceptions.ResourceNotFoundException;
 import com.urunov.rest.model.Product;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
-@Service
+
 public interface ProductService {
 
-   List<ProductService> AllProducts();
+   List<Product> AllProducts();
+   Optional<Product> getProductById(Long productId) throws ResourceNotFoundException;
+   void addProduct(Product product, long id);
+   Product updateProduct(long id, Product productDetails) throws ResourceNotFoundException;
 
-   ProductService getProductById(Long productId);
-
-   void addProduct(Product product);
-
-   void deleteProductById(long id);
-
-   void updateProduct(Product product);
+   Map<String, Boolean> deleteProductById(long id) throws ResourceNotFoundException;
 }
+
+

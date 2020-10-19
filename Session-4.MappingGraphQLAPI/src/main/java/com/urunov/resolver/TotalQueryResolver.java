@@ -16,9 +16,10 @@ import java.util.List;
  * @created on 29/08/2020
  * @Project is Crud
  */
-@Component
+
 @RequiredArgsConstructor
-public class QueryResolver implements GraphQLQueryResolver {
+@Component
+public class TotalQueryResolver implements GraphQLQueryResolver {
 
     private final CategoryRepository categoryRepository;
     private final ProductRepository productRepository;
@@ -26,7 +27,7 @@ public class QueryResolver implements GraphQLQueryResolver {
     public Iterable<Category> allCategories(){
         return categoryRepository.findAll();
     }
-//
+
     public List<Product>  allProducts(){
         return productRepository.findAll();
     }

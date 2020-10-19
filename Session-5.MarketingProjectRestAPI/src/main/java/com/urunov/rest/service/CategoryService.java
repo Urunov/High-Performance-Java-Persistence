@@ -2,16 +2,16 @@ package com.urunov.rest.service;
 
 import com.urunov.rest.exceptions.ResourceNotFoundException;
 import com.urunov.rest.model.Category;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
-@Service
 public interface CategoryService {
 
     Category get(long id);
     List<Category> allCategory();
-    void add(Category category, long id);
+    Optional<Category> add(Category category, long id);
     Category update(Category category, long id) throws ResourceNotFoundException;
-    void delete(long id);
+    Map<String, Boolean> delete(long id) throws ResourceNotFoundException;
 }

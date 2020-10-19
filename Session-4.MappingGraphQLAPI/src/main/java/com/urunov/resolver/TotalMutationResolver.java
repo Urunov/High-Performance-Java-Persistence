@@ -10,15 +10,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author: apple
  * @created on 29/08/2020
  * @Project is Crud
  */
-@RequiredArgsConstructor
 @Component
-public class MutationResolver implements GraphQLMutationResolver {
+public class TotalMutationResolver implements GraphQLMutationResolver {
 
     @Autowired
     private CategoryRepository categoryRepository;
@@ -32,6 +32,11 @@ public class MutationResolver implements GraphQLMutationResolver {
         category.setName(name);
 
         return categoryRepository.saveAndFlush(category);
+    }
+
+    public List<Category> allCategories(){
+
+        return categoryRepository.findAll();
     }
 
     public Product addProduct(Long id, String name, String slug, String type, String unit, Float price, String code, Integer disc_in_pros, Integer per_unit, Integer quantity, String description, Date creation_date, Integer category_id) {
@@ -55,8 +60,6 @@ public class MutationResolver implements GraphQLMutationResolver {
         product.setCreation_date(creation_date);
 
         return productRepository.saveAndFlush(product);
-
-
     }
 
     public Category updateCategory(Long id, String name){
@@ -85,8 +88,8 @@ public class MutationResolver implements GraphQLMutationResolver {
         return true;
     }
 
-//    public Boolean deleteProduct(Integer id){
-//       productRepository.deleteById(id);
-//        return true;
-//    }
+    public Boolean deleteProduct(Integer id){
+       productRepository.deleteById(id);
+        return true;
+    }
 }

@@ -1,19 +1,23 @@
 package com.urunov.rest.service;
 
-import org.springframework.stereotype.Service;
+import com.urunov.rest.exceptions.ResourceNotFoundException;
+import com.urunov.rest.model.Customer;
 
-@Service
+import javax.persistence.criteria.Order;
+import java.util.List;
+import java.util.Map;
+
+
 public interface CustomerService {
 
-    //public CustomerService validateUsers(String userName, String password);
 
-//  Integer register void User(CustomerService customer);
+    Customer customById(Long customId);
 
-   // boolean changePassword(String password1, CustomerService customer);
+    List<Customer> getAllCustomers();
 
-    CustomerService getCustomerById(Long customerId);
-
-    Long getCustomerName(String userName);
+    void addCustomer(Customer customer, long id);
+    Order updateCustomer(long id, Customer customerDetails) throws ResourceNotFoundException;
+    Map<String, Boolean> deleteCustomerById(long id) throws ResourceNotFoundException;
 
 
 }

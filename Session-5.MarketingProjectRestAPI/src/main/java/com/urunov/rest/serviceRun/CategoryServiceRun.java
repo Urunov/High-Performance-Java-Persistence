@@ -2,11 +2,14 @@ package com.urunov.rest.serviceRun;
 
 import com.urunov.rest.exceptions.ResourceNotFoundException;
 import com.urunov.rest.model.Category;
+import com.urunov.rest.model.Product;
 import com.urunov.rest.repository.CategoryResource;
 import com.urunov.rest.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public class CategoryServiceRun implements CategoryService {
@@ -39,7 +42,7 @@ public class CategoryServiceRun implements CategoryService {
     }
 
     @Override
-    public void add(Category category, long id) {
+    public Optional<Category> add(Category category, long id) {
 
         Optional<Category> optionalCategory = categoryResource.findById(id);
 
@@ -48,6 +51,8 @@ public class CategoryServiceRun implements CategoryService {
         }else{
             this.categoryResource.save(category);
         }
+
+        return optionalCategory;
     }
 
     @Override
@@ -67,11 +72,16 @@ public class CategoryServiceRun implements CategoryService {
 
     }
 
-
-
     @Override
-    public void delete(long id) {
-        this.categoryResource.deleteById(id);
+    public Map<String, Boolean> delete(long id) throws ResourceNotFoundException {
+
+        Category category = categoryResource.findById(id).orElseThrow(()-> new ResourceNotFoundException("Product not found id:" + id));
+
+        categoryResource.delete(category);
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("delete", Boolean.TRUE);
+        return response;
     }
+
 
 }
