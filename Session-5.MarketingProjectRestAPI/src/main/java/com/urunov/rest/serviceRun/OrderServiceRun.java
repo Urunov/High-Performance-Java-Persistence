@@ -6,7 +6,6 @@ import com.urunov.rest.repository.OrdersResource;
 import com.urunov.rest.service.OrderService;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.criteria.Order;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -17,7 +16,7 @@ public class OrderServiceRun implements OrderService {
     private OrdersResource ordersResource;
 
     @Override
-    public Optional<Orders> getOrderById(Long orderId) {
+    public Optional<Orders> getOrdersById(Long orderId) {
         return ordersResource.findById(orderId);
     }
 
@@ -27,17 +26,18 @@ public class OrderServiceRun implements OrderService {
     }
 
     @Override
-    public void addOrder(Order order, long id) {
+    public void addOrders(Orders order, long id) {
 
     }
 
+
     @Override
-    public Order updateOrder(long id, Order orderDetails) throws ResourceNotFoundException {
+    public Orders updateOrders(long id, Orders orderDetails) throws ResourceNotFoundException {
         return null;
     }
 
     @Override
-    public Map<String, Boolean> deleteOrderById(long id) throws ResourceNotFoundException {
+    public Map<String, Boolean> deleteOrdersById(long id) throws ResourceNotFoundException {
         return null;
     }
 }

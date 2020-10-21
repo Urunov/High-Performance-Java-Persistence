@@ -2,7 +2,6 @@ package com.urunov.rest.serviceRun;
 
 import com.urunov.rest.exceptions.ResourceNotFoundException;
 import com.urunov.rest.model.Category;
-import com.urunov.rest.model.Product;
 import com.urunov.rest.repository.CategoryResource;
 import com.urunov.rest.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;

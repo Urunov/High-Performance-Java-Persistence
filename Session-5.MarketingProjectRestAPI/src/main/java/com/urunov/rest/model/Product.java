@@ -54,4 +54,8 @@ public class Product implements Serializable {
 
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     private List<Coupon> coupons;
+
+    public Product(String s, String santideva, String sdfs, int i, int i1, String s1) {
+        super();
+    }
 }
